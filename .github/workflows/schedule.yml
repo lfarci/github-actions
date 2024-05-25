@@ -2,7 +2,7 @@ name: Add comment to PR
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   comment:
