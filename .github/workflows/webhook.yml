@@ -12,9 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - env:
-          NAME: ${{ github.event.client_payload.Name }}
-          AGE: ${{ github.event.client_payload.Age }}
+      - name: Read Name and Age
+        run: |
+          echo "Name: ${{ github.event.client_payload.name }}"
+          echo "Age: ${{ github.event.client_payload.age }}"
+      
+      - name: Print Joyful Message
+        run: |
+          echo "🎉 Hello ${{ github.event.client_payload.name }}! You are ${github.event.client_payload.age} years old! 🎉"
 
-      - name: Hello World
-        run: echo "Hello $NAME, you are $AGE years old."
+
+      
