@@ -2,8 +2,7 @@ name: Repository Dispatch
 
 on:
   repository_dispatch:
-    types:
-      - my-event-type
+    types: [my-event-type]
 
 jobs:
   build:
@@ -13,5 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - env:
+          NAME: ${{ github.event.client_payload.Name }}
+          AGE: ${{ github.event.client_payload.Age }}
+
       - name: Hello World
-        run: echo "Hello, World!"
+        run: echo "Hello $NAME, you are $AGE years old."
