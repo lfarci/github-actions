@@ -34,5 +34,6 @@ jobs:
           SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
         run: echo "The selected color is $SELECTED_COLOR"
 
-      echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+      -name: Set summary
+       run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
