@@ -19,7 +19,7 @@ jobs:
       
       - name: Print Joyful Message
         run: |
-          echo "🎉 Hello ${{ github.event.client_payload.name }}! You are ${github.event.client_payload.age} years old! 🎉"
+          echo "🎉 Hello ${{ github.event.client_payload.name }}! You are ${{ github.event.client_payload.age }} years old! 🎉"
 
 
       
