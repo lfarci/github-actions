@@ -1,0 +1,21 @@
+name: Worflow commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: |
+          echo "::error::  This is an error"
+          echo "::error file=TriggerRepositoryDispatchWorkflow.sh,line=11,col=71,endColumn=76::Weird name"
+          echo "::warning::  This is a warning"
+          echo "::group::This is a group"
+          echo "This is a group"
+          echo "This is a group"
+          echo "::endgroup::"
+
