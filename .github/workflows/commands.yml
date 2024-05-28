@@ -18,4 +18,21 @@ jobs:
           echo "This is a group"
           echo "This is a group"
           echo "::endgroup::"
+      
+      - name: Set en environment variable
+        run: echo "FOO=bar" >> $GITHUB_ENV
+      
+      - name: Print the environment variable
+        run: echo $FOO
+
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
+
+      echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
