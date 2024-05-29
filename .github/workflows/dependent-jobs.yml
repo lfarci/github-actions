@@ -1,0 +1,23 @@
+name: Workflow for dependent jobs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    name: First job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show job name
+        run: echo "$JOB_NAME"
+        env:
+          JOB_NAME: ${{ github.job }}
+
+  job2:
+    name: Second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show job name
+        run: echo "$JOB_NAME"
+        env:
+          JOB_NAME: ${{ github.job }}
