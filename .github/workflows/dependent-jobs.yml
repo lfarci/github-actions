@@ -43,7 +43,7 @@ jobs:
           JOB_NAME: ${{ github.job }}
 
   job5:
-    needs:"[job3, job4]"
+    needs: [job3, job4]
     name: Fifth job
     runs-on: ubuntu-latest
     steps:
