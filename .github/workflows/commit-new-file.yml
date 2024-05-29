@@ -1,3 +1,17 @@
+name: Commit new file
+
+on:
+  workflow_dispatch:
+    inputs:
+      file_name:
+        description: 'Name of the file to be created'
+        required: true
+        default: 'new-file.txt'
+      file_content:
+        description: 'Content of the file to be created'
+        required: true
+        default: 'Hello, world!'
+
 jobs:
   create_file_and_upload_artifact:
     runs-on: ubuntu-latest
