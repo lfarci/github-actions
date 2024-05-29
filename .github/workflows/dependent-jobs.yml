@@ -21,3 +21,33 @@ jobs:
         run: echo "$JOB_NAME"
         env:
           JOB_NAME: ${{ github.job }}
+
+  job3:
+    needs: [job1, job2]
+    name: Third job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show job name
+        run: echo "$JOB_NAME"
+        env:
+          JOB_NAME: ${{ github.job }}
+
+  job4:
+    needs: job2
+    name: Fourth job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show job name
+        run: echo "$JOB_NAME"
+        env:
+          JOB_NAME: ${{ github.job }}
+
+  job5:
+    needs:"[job3, job4]"
+    name: Fifth job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show job name
+        run: echo "$JOB_NAME"
+        env:
+          JOB_NAME: ${{ github.job }}
