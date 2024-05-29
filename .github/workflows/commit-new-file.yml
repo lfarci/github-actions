@@ -31,6 +31,7 @@ jobs:
   download_artifact_and_push_changes:
     needs: create_file_and_upload_artifact
     runs-on: ubuntu-latest
+    environment: 'production' # specify the environment here
     steps:
       - uses: actions/checkout@v4
 
