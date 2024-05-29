@@ -13,12 +13,7 @@ on:
         default: 'Hello, world!'
 
 jobs:
-checkout_repo:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-
-  commit_new_file:
+  push_new_file:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
